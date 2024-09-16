@@ -1,0 +1,50 @@
+<div class="flex justify-center mt-10">
+    <div class="w-full max-w-sm p-4 bg-white border border-gray-300 rounded-md shadow">
+        <h3 class="text-xl font-medium text-gray-900 text-center mb-5">
+            Crea tu cuenta
+        </h3>
+        <form [formGroup]="initialForm" (ngSubmit)="handleSubmit($event)" class="space-y-6">
+            <div>
+                <app-input type="text" placeholder="Nombres" formControlName="name" />
+                @if (initialForm.get('name')?.errors && initialForm.get('name')?.touched) {
+                <p class="mt-2 text-sm text-red-600 font-medium">
+                    {{ initialForm.get('name')?.errors | validationErrorInputPipe}}
+                </p>
+                }
+            </div>
+            <div>
+                <app-input type="email" placeholder="Email" formControlName="email" />
+                @if (initialForm.get('email')?.errors && initialForm.get('email')?.touched) {
+                <p class="mt-2 text-sm text-red-600 font-medium">
+                    {{ initialForm.get('email')?.errors | validationErrorInputPipe}}
+                </p>
+                }
+            </div>
+            <div>
+                <app-input type="password" placeholder="Contraseña" formControlName="password" />
+                @if (initialForm.get('password')?.errors && initialForm.get('password')?.touched) {
+                <p class="mt-2 text-xs text-red-600 font-medium">
+                    {{ initialForm.get('password')?.errors | validationErrorInputPipe}}
+                </p>
+                }
+            </div>
+            <div>
+                <app-input type="password" placeholder="Repita Contraseña" formControlName="confirmPassword" />
+                @if (initialForm.get('confirmPassword')?.errors && initialForm.get('confirmPassword')?.touched) {
+                <p class="mt-2 text-xs text-red-600 font-medium">
+                    {{ initialForm.get('confirmPassword')?.errors | validationErrorInputPipe}}
+                </p>
+                }
+            </div>
+            <div>
+                <button type="submit"
+                    class="w-full text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                    Crea tu cuenta
+                </button>
+            </div>
+            <div class="text-sm font-medium text-gray-500">
+                ¿Tienes una cuenta? <a href="#" class="text-pink-700 hover:underline">Inicia Sesión</a>
+            </div>
+        </form>
+    </div>
+</div>
