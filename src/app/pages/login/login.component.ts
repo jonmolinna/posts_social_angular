@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
+import { InputComponent } from '../../components/forms/input/input.component';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { InputComponent } from '../../components/forms/input/input.component';
 import { ValidationErrorPipe } from '../../pipe/validation_error_input.pipe';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-login',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -19,30 +18,21 @@ import { RouterModule } from '@angular/router';
     ValidationErrorPipe,
     RouterModule,
   ],
-  templateUrl: './register.component.html',
+  templateUrl: './login.component.html',
 })
-export class RegisterComponent {
+export class LoginComponent {
   initialForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
     this.initialForm = this.formBuilder.group({
-      name: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(20),
-        ],
-      ],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
+      email: ['', Validators.required, Validators.email],
+      password: ['', Validators.required],
     });
   }
 
   handleSubmit(event: Event) {
     event.preventDefault();
-    console.log('>>>', this.initialForm.value);
+    console.log('fORM', this.initialForm.value);
     this.initialForm.reset();
   }
 }

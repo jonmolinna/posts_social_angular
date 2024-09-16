@@ -15,11 +15,9 @@ const ERROR_MESSAGES: Record<string, string> = {
 })
 export class ValidationErrorPipe implements PipeTransform {
   transform(errors: ValidationErrors | null | undefined) {
-    console.log('>>>>>', errors);
     if (errors) {
       const response = Object.entries(errors)
         .map(([key, value]) => {
-          console.log('>>>', key, value);
           if (typeof value === 'string' && value.length > 0) {
             return value;
           } else if (value === true && ERROR_MESSAGES[key]) {
