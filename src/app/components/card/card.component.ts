@@ -4,8 +4,8 @@ import { ChatBubbleAvalIconComponent } from '../icons/chat-bubble-aval-icon/chat
 import { PaperAirplaneComponent } from '../icons/paper-airplane/paper-airplane.component';
 import { BookmarkIconComponent } from '../icons/bookmark-icon/bookmark-icon.component';
 import { postInterface } from '../../interface/post.interface';
-import { LetterUppercasePipe } from '../../pipes/letter.uppercase.pipe';
-import { DateLocalePipe } from '../../pipes/date.locale.pipe';
+import { LetterUppercasePipe } from '../../pipe/letter.uppercase.pipe';
+import { DateLocalePipe } from '../../pipe/date.locale.pipe';
 
 @Component({
   selector: 'app-card',
