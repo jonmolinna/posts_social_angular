@@ -5,10 +5,10 @@
         </h3>
         <form [formGroup]="initialForm" (ngSubmit)="handleSubmit($event)" class="space-y-6">
             <div>
-                <app-input type="email" placeholder="Email" formControlName="email" />
-                @if (initialForm.get('email')?.errors && initialForm.get('email')?.touched) {
+                <app-input type="username" placeholder="Username" formControlName="username" />
+                @if (initialForm.get('username')?.errors && initialForm.get('username')?.touched) {
                 <p class="mt-2 text-xs text-red-600 font-medium">
-                    {{ initialForm.get('email')?.errors | validationErrorInputPipe}}
+                    {{ initialForm.get('username')?.errors | validationErrorInputPipe}}
                 </p>
                 }
             </div>
@@ -21,9 +21,13 @@
                 }
             </div>
             <div>
-                <button type="submit"
-                    class="w-full text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                <button type="submit" [disabled]="disabledButton || !initialForm.valid"
+                    class="w-full text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-md text-sm px-5 py-2.5 text-center disabled:bg-pink-500">
+                    @if (loading) {
+                    Cargando ...
+                    } @else {
                     Iniciar sesión
+                    }
                 </button>
             </div>
             <div class="text-sm font-medium text-gray-500">
