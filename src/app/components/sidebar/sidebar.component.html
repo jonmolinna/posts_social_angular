@@ -2,15 +2,14 @@
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 border-e border-gray-300">
         <ul class="space-y-2 font-medium mt-10">
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-md hover:bg-gray-300">
+                <a routerLink="/home" routerLinkActive="active" #home="routerLinkActive"
+                    class=" flex items-center p-2 text-gray-900 rounded-md hover:bg-gray-300 cursor-pointer">
+                    @if (home.isActive) {
+                    <app-home-icon-solid />
+                    } @else {
                     <app-home-icon />
+                    }
                     <span class="hidden xl:block ms-3">Inicio</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-md hover:bg-gray-300">
-                    <app-fire-icon />
-                    <span class="hidden xl:block ms-3">Explorar</span>
                 </a>
             </li>
             <li>
@@ -20,16 +19,22 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-md hover:bg-gray-300">
+                <a routerLink="/profile" routerLinkActive="active" #profile="routerLinkActive"
+                    class="flex items-center p-2 text-gray-900 rounded-md hover:bg-gray-300">
+                    @if (profile.isActive) {
+                    <app-user-circle-icon-solid />
+                    } @else {
                     <app-user-circle-icon />
+                    }
                     <span class="hidden xl:block ms-3">Perfil</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-md hover:bg-gray-300">
+                <span (click)="logout()"
+                    class="flex items-center p-2 text-gray-900 rounded-md hover:bg-gray-300 cursor-pointer">
                     <app-arrow-right-start-on-rectangle-icon />
                     <span class="hidden xl:block ms-3">Salir</span>
-                </a>
+                </span>
             </li>
         </ul>
     </div>
