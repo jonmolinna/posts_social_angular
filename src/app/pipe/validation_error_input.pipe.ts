@@ -33,17 +33,5 @@ export class ValidationErrorPipe implements PipeTransform {
       return response;
     }
     return '';
-
-    // return errors
-    //   ? Object.entries(errors)
-    //       .map(([key, value]) =>
-    //         typeof value === 'string' && value.length > 0
-    //           ? value
-    //           : value === true && ERROR_MESSAGES[key]
-    //           ? ERROR_MESSAGES[key]
-    //           : ERROR_MESSAGES['unknown']
-    //       )
-    //       .join('. ')
-    //   : '';
   }
 }
