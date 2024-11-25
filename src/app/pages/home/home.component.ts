@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { SearchSuggestionsComponent } from '../../components/search-suggestions/search-suggestions.component';
 import { SuggestionsComponent } from '../../components/suggestions/suggestions.component';
 import { RouterModule } from '@angular/router';
+import { UserService } from '../../services/users.services';
 
 @Component({
   selector: 'app-home',
@@ -15,4 +16,10 @@ import { RouterModule } from '@angular/router';
   ],
   templateUrl: './home.component.html',
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  private userService = inject(UserService);
+
+  ngOnInit(): void {
+    this.userService.getProfileUser();
+  }
+}
