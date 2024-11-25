@@ -1,3 +1,4 @@
+import { likeInterface } from './like.interface';
 import { userInterface } from './user.interface';
 
 export interface postInterface {
@@ -9,7 +10,7 @@ export interface postInterface {
   createdAt: Date;
   bookMarks: BookMark[];
   comments: Comment[];
-  likes: BookMark[];
+  likes: likeInterface[];
 }
 
 /////------------------ DELETE
