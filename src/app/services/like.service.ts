@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
-import { postInterface } from '../interface/post.interface';
+import { likeInterface } from '../interface/like.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PostService {
+export class LikeService {
   private http = inject(HttpClient);
   private url: string;
 
@@ -15,7 +15,10 @@ export class PostService {
     this.url = environment.endpoint;
   }
 
-  getAllPosts(): Observable<postInterface[]> {
-    return this.http.get<postInterface[]>(`${this.url}/posts/posts`);
+  addOrDeleteLike(id: string): Observable<likeInterface> {
+    return this.http.post<likeInterface>(
+      `${this.url}/likes/addOrDelete/${id}`,
+      {}
+    );
   }
 }
