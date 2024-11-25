@@ -9,8 +9,13 @@
     <div class="p-2">
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <button>
+                <button (click)="handleLikeOrDelete(post?._id)">
+                    @if(liked()) {
+                    <app-heart-icon-solid class="text-red-700" />
+                    }
+                    @else {
                     <app-heart-icon />
+                    }
                 </button>
                 <button class="-rotate-90">
                     <app-chat-bubble-aval-icon />
